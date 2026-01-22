@@ -69,11 +69,16 @@ public class ProductListingAndPaginationPage extends BasePage
         return products;
     }
 
-    public int getAmountOfProductsPerCategory(String category)
+    public List<ProductDetails> getListOfProductsPerCategory(String productCategory)
     {
         List<ProductDetails> products = getListOfProducts();
 
-        return (int)products.stream().filter(p -> p.category().equals(category)).count();
+        return products.stream().filter(p -> p.category().equals(productCategory)).toList();
+    }
+
+    public int getAmountOfProductsPerCategory(String productCategory)
+    {
+        return getListOfProductsPerCategory(productCategory).size();
     }
 
     public String getPageNumberOfProduct(String productName)
@@ -88,5 +93,22 @@ public class ProductListingAndPaginationPage extends BasePage
         }
 
         return "";
+    }
+
+    public List<String> getHighestRatedPRoductsPerCategory(String productCategory)
+    {
+        List<ProductDetails> products = getListOfProductsPerCategory(productCategory);
+
+        List<String> highestRatedProducts = new ArrayList<>();
+
+        for(ProductDetails product : products)
+        {
+            if(product.rating == 5)
+            {
+                highestRatedProducts.add(product.name);
+            }
+        }
+
+        return highestRatedProducts;
     }
 }
