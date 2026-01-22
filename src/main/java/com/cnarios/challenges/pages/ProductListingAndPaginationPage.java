@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ProductListingAndPaginationPage extends BasePage
 {
@@ -73,5 +74,19 @@ public class ProductListingAndPaginationPage extends BasePage
         List<ProductDetails> products = getListOfProducts();
 
         return (int)products.stream().filter(p -> p.category().equals(category)).count();
+    }
+
+    public String getPageNumberOfProduct(String productName)
+    {
+        List<ProductDetails> products = getListOfProducts();
+
+        Optional<ProductDetails> product = products.stream().filter(p -> p.name().equals(productName)).findFirst();
+
+        if(product.isPresent())
+        {
+            return product.get().page();
+        }
+
+        return "";
     }
 }

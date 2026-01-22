@@ -11,11 +11,21 @@ public class ProductListingAndPaginationTests extends BaseTest
     public void test_PLP_001(String productCategory, int amountOfProducts)
     {
         ProductListingAndPaginationPage page = new ProductListingAndPaginationPage(driver, logger);
-
         page.loadPage();
 
         int actualNumberOfProducts = page.getAmountOfProductsPerCategory(productCategory);
 
         Assert.assertEquals(amountOfProducts, actualNumberOfProducts);
+    }
+
+    @Test(dataProvider = "PLP_002")
+    public void test_PLP_002(String productName, String pageNumber)
+    {
+        ProductListingAndPaginationPage page = new ProductListingAndPaginationPage(driver, logger);
+        page.loadPage();
+
+        String actualPageNumber = page.getPageNumberOfProduct(productName);
+
+        Assert.assertEquals(actualPageNumber, pageNumber);
     }
 }
