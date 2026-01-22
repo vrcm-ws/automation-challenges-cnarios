@@ -36,4 +36,14 @@ public class DataProviders
                                 {"Clothing", List.of("Nike Air Force 1 Sneakers", "Patagonia Fleece Sweater", "The North Face Jacket", "Under Armour Running Shoes")},
                                 {"Electronics", List.of("Sony PlayStation 5", "GoPro HERO11 Black", "Bose QuietComfort 45", "Apple MacBook Air M2", "Apple iPhone 14 Pro", "Sony WH-1000XM5 Headphones")} };
     }
+
+    @DataProvider(name = "PLP_004")
+    public Object[][] mostExpensiveProductPerCategory()
+    {
+        return new Object[][] { {"Books", "Clean Code", 34.99},
+                                {"Sports", "Callaway Golf Set", 499.99},
+                                {"Home", "Samsung Smart Refrigerator", 1799.99},
+                                {"Clothing", "The North Face Jacket", 129.99},
+                                {"Electronics", "Dell XPS 13 Laptop", 1199.99} };
+    }
 }

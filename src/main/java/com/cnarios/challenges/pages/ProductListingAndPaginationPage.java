@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -110,5 +111,21 @@ public class ProductListingAndPaginationPage extends BasePage
         }
 
         return highestRatedProducts;
+    }
+
+    public List<Object> getMostExpensiveProductPerCategory(String productCategory)
+    {
+        List<ProductDetails> products = getListOfProductsPerCategory(productCategory);
+        List<Object> mostExpensiveProduct = new ArrayList<>();
+
+        Optional<ProductDetails> product = products.stream().max(Comparator.comparingDouble(ProductDetails::price));
+
+        if(product.isPresent())
+        {
+            mostExpensiveProduct.add(product.get().name());
+            mostExpensiveProduct.add(product.get().price());
+        }
+
+        return mostExpensiveProduct;
     }
 }

@@ -43,4 +43,19 @@ public class ProductListingAndPaginationTests extends TestUtilities
 
         Assert.assertTrue(areListsEqual(listOfProducts, expectedListOfProducts));
     }
+
+    @Test(dataProviderClass = DataProviders.class, dataProvider = "PLP_004")
+    public void test_PLP_004(String productCategory, String expectedProductName, double expectedProductPrice)
+    {
+        ProductListingAndPaginationPage page = new ProductListingAndPaginationPage(driver, logger);
+        page.loadPage();
+
+        List<Object> actualMostExpensiveProduct = page.getMostExpensiveProductPerCategory(productCategory);
+
+        String actualProductName = actualMostExpensiveProduct.get(0).toString();
+        double actualProductPrice = (double) actualMostExpensiveProduct.get(1);
+
+        Assert.assertEquals(actualProductName, expectedProductName);
+        Assert.assertEquals(actualProductPrice, expectedProductPrice);
+    }
 }

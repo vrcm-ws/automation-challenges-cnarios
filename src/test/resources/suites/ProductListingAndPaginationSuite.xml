@@ -35,4 +35,15 @@
     </classes>
   </test>
 
+  <test name="PLP_004">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.cnairos.challenges.tests.ProductListingAndPaginationTests">
+        <methods>
+          <include name="test_PLP_004"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+
 </suite>
