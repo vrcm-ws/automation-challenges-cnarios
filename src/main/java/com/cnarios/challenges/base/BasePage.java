@@ -63,4 +63,9 @@ public class BasePage
             logger.info(e.getMessage());
         }
     }
+
+    protected boolean isElementVisible(By locator)
+    {
+        return driver.findElement(locator).isEnabled();
+    }
 }
