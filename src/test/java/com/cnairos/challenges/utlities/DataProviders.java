@@ -46,4 +46,20 @@ public class DataProviders
                                 {"Clothing", "The North Face Jacket", 129.99},
                                 {"Electronics", "Dell XPS 13 Laptop", 1199.99} };
     }
+
+    @DataProvider(name = "PLP_005")
+    public Object[][] pageNavigation()
+    {
+        return new Object[][] { {1, 1, 2},
+                                {2, 1, 3},
+                                {3, 2, 4},
+                                {4, 3, 5},
+                                {5, 4, 5} };
+    }
+
+    @DataProvider(name = "PLP_006")
+    public Object[][] pageNumbers()
+    {
+        return new Object[][] { {1}, {2}, {3}, {4}, {5} };
+    }
 }

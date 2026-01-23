@@ -46,4 +46,26 @@
     </classes>
   </test>
 
+  <test name="PLP_005">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.cnairos.challenges.tests.ProductListingAndPaginationTests">
+        <methods>
+          <include name="test_PLP_005"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+
+  <test name="PLP_006">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.cnairos.challenges.tests.ProductListingAndPaginationTests">
+        <methods>
+          <include name="test_PLP_006"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+
 </suite>
